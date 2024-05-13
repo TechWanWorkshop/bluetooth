@@ -33,9 +33,9 @@ void setup() {
 
 void loop() {
 
-  servo();
 
-  /*lcd.setCursor(0,0);
+
+  lcd.setCursor(0,0);
   lcd.print("Youtube : Tech Wan");
   lcd.setCursor(0,2);
   lcd.print("Char Receive :");
@@ -59,65 +59,7 @@ void loop() {
   }
  
  delay(20);
- */
 
-
-
- 
 }
 
 
-void servo()
-{
-  // Read serial input:
-  while (ESP_BT.available() > 0) {
-    int inChar = ESP_BT.read();
-    if (isDigit(inChar)) {
-      // convert the incoming byte to a char and add it to the string:
-      inString += (char)inChar;
-    }
-
-         
-    // if you get a newline, print the string, then the string's value:
-    if (inChar == '\n') {
-      Serial.print("Value:");
-      Serial.println(inString.toInt());
-
-      int value = inString.toInt();
-      
-                      if(value>=0 && value<=90){
-                      Serial.println(value); 
-                      
-                      }
-                     if(value>90 && value<=181){
-                      Serial.println(value); 
-                      
-                      }
-                
-                    if(value>181 && value<=272){
-                      Serial.println(value); 
-                     
-                      }
-                
-                    if(value>272 && value<=363){
-                      Serial.println(value); 
-                      
-                      }
-
-                      if(value>363 && value<=454){
-                      Serial.println(value); 
-                     
-                      }
-    
-      inString = "";
-
-  
-      
-      //Serial.print("String: ");
-      //Serial.println(inString);
-      // clear the string for new input:
-     // 
-    }
-    
-  }
-}
